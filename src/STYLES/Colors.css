@@ -1,0 +1,15 @@
+.bg_black {
+  background-color: black;
+}
+.bg_white {
+  background-color: white;
+}
+.bg_clear {
+  background-color: rgba(0, 0, 0, 0);
+}
+.black {
+  color: black;
+}
+.white {
+  color: white;
+}

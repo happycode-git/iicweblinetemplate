@@ -1,0 +1,45 @@
+.all_caps {
+  text-transform: uppercase;
+}
+.bold {
+  font-weight: bold;
+}
+.thin {
+  font-weight: lighter;
+}
+.underline {
+  text-decoration: underline;
+}
+.no_wrap {
+  white-space: nowrap;
+}
+.cover {
+  object-fit: cover;
+}
+.fill {
+  object-fit: fill;
+}
+.contain {
+  object-fit: contain;
+}
+.center_text {
+  text-align: center;
+}
+.left_text {
+  text-align: left;
+}
+.right_text {
+  text-align: right;
+}
+.radius {
+  border-radius: 10px;
+}
+.full_radius {
+  border-radius: 100px;
+}
+.pointer {
+  cursor: pointer;
+}
+.hover:hover {
+  opacity: 0.8;
+}
