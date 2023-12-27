@@ -1,34 +1,41 @@
-import React from "react";
-import { Navigation1 } from "../UTILITIES/Navigation";
-import { Footer1 } from "../UTILITIES/Footer";
-import { c_footer, c_nav } from "../Constants";
+import React, { useEffect } from "react";
+import { c_footer, c_nav, routes } from "../Constants";
 import { Row } from "../COMPONENTS/Row";
 import { Group } from "../COMPONENTS/Group";
 
 import img1 from "../IMAGES/MAIN/stock1.jpg";
 import { Image } from "../COMPONENTS/Image";
+import { useLocation } from "react-router-dom";
 
-const events = [
-  {
-    Name: "Bagel Event for Everyone",
-    Details:
-      "Everywhere there are bagels for sale. If you want to go to the event, make sure you bring everything. We are all about the bagel and the bagel is all in you.",
-    Date: "Wednesday, January 12, 2024",
-    Image: img1,
-  },
-  {
-    Name: "Bagel Event for Everyone",
-    Details:
-      "Everywhere there are bagels for sale. If you want to go to the event, make sure you bring everything. We are all about the bagel and the bagel is all in you.",
-    Date: "Wednesday, January 12, 2024",
-    Image: img1,
-  },
-];
 
 export function Events1() {
+  const location = useLocation();
+  const events = [
+    {
+      Name: "Bagel Event for Everyone",
+      Details:
+        "Everywhere there are bagels for sale. If you want to go to the event, make sure you bring everything. We are all about the bagel and the bagel is all in you.",
+      Date: "Wednesday, January 12, 2024",
+      Image: img1,
+    },
+    {
+      Name: "Bagel Event for Everyone",
+      Details:
+        "Everywhere there are bagels for sale. If you want to go to the event, make sure you bring everything. We are all about the bagel and the bagel is all in you.",
+      Date: "Wednesday, January 12, 2024",
+      Image: img1,
+    },
+  ];
+  
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    document.title = routes.find(
+      (route) => `/${route.path}` === location.pathname
+    ).title;
+  }, [])
   return (
     <div className="fade_in">
-      {c_nav()}
+      {routes.find((route) => `/${route.path}` === location.pathname).Helmet}{c_nav()}
       <Row>
         <Group classes={"margin_v"}>
           <h1 className="no_margin center_text main_title_font" style={{ fontSize: "6vh" }}>

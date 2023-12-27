@@ -2,9 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Row } from "../COMPONENTS/Row";
 import { Group } from "../COMPONENTS/Group";
 import { Textfield } from "../COMPONENTS/Textfield";
-import { useNavigate } from "react-router-dom";
-import { Navigation1 } from "../UTILITIES/Navigation";
-import { Footer1 } from "../UTILITIES/Footer";
+import { useLocation, useNavigate } from "react-router-dom";
 import img1 from "../IMAGES/MAIN/stock1.jpg";
 import { Image } from "../COMPONENTS/Image";
 import { Spacer } from "../COMPONENTS/Spacer";
@@ -14,8 +12,10 @@ import { Button1 } from "../COMPONENTS/Button";
 import { auth_ResetPassword, auth_SignIn, screenWidth } from "../Global";
 import { Link1 } from "../COMPONENTS/Link";
 import Loading from "../UTILITIES/Loading";
+import { c_footer, c_nav, routes } from "../Constants";
 
 export function Login() {
+  const location = useLocation();
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState("");
@@ -32,12 +32,18 @@ export function Login() {
     auth_SignIn(setLoading, email, password, navigate, "/")
   }
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    document.title = routes.find(
+      (route) => `/${route.path}` === location.pathname
+    ).title;
+  }, []);
 
   return (
     <div className="fade_in">
       {loading && <Loading classes={""} />}
-      <Navigation1 />
+      {routes.find((route) => `/${route.path}` === location.pathname).Helmet}
+      {c_nav()}
       <Spacer height={20} />
       <Row>
         <Group>
@@ -97,11 +103,12 @@ export function Login() {
         </Group>
       </Row>
       <Spacer height={20} />
-      <Footer1 />
+     {c_footer()}
     </div>
   );
 }
 export function OrderLogin() {
+  const location = useLocation();
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState("");
@@ -118,12 +125,18 @@ export function OrderLogin() {
     auth_SignIn(setLoading, email, password, navigate, "/orderonline")
   }
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    document.title = routes.find(
+      (route) => `/${route.path}` === location.pathname
+    ).title;
+  }, []);
 
   return (
     <div className="fade_in">
       {loading && <Loading classes={""} />}
-      <Navigation1 />
+      {routes.find((route) => `/${route.path}` === location.pathname).Helmet}
+      {c_nav()}
       <Spacer height={20} />
       <Row>
         <Group>
@@ -183,7 +196,7 @@ export function OrderLogin() {
         </Group>
       </Row>
       <Spacer height={20} />
-      <Footer1 />
+      {c_footer()}
     </div>
   );
 }

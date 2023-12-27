@@ -1,6 +1,6 @@
 import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { c_footer, c_nav } from "../Constants";
+import { c_footer, c_nav, routes } from "../Constants";
 import { IoMdClose } from "react-icons/io";
 import { FaArrowLeftLong } from "react-icons/fa6";
 import { BlogPost1 } from "./BlogPost1";
@@ -11,7 +11,7 @@ export function BlogPost() {
   const navigate = useNavigate();
   return (
     <div className="">
-      {c_nav()}
+      {routes.find((route) => `/${route.path}` === location.pathname).Helmet}{c_nav()}
       <div className={"separate_horizontal padding"}>
         <FaArrowLeftLong
           size={"40px"}

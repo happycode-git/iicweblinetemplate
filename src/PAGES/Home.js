@@ -29,16 +29,16 @@ export function Home1() {
 
   return (
     <div className="fade_in">
-      {c_nav()}
+      {routes.find((route) => `/${route.path}` === location.pathname).Helmet}{c_nav()}
       {toggle && <MailingList setToggle={setToggle} />}
       <Spacer height={"2vh"} />
       <Row classes={"gap"}>
-        <Group classes={"radius"} backgroundColor={"rgba(0,0,0,0.1)"}>
+        <Group classes={"radius"} backgroundColor={"rgba(0,0,0,0)"}>
           <Block3
             heading={
               "Everything in the bagel comes around to see you on the other side."
             }
-            headingSize={"5vh"}
+            headingSize={"6vh"}
             text={
               "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a augue et tellus varius accumsan. Integer auctor nunc dui, ut vehicula turpis pretium accumsan. Sed ullamcorper tortor justo, vel aliquam nisi suscipit a. "
             }
@@ -49,6 +49,7 @@ export function Home1() {
               onClick={() => {}}
               borderWidth={"2"}
               text={"Learn More"}
+              textSize={"20px"}
               classes={"fit_width center main_title_font"}
               paddingH={"2em"}
               paddingV={"0.6em"}
@@ -103,9 +104,17 @@ export function Home1() {
   );
 }
 export function Home2() {
+  const location = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    document.title = routes.find(
+      (route) => `/${route.path}` === location.pathname
+    ).title;
+  }, [])
+  
   return (
     <div className="fade_in">
-      {c_nav()}
+      {routes.find((route) => `/${route.path}` === location.pathname).Helmet}{c_nav()}
       <Spacer height={"1vh"} />
       <Row>
         <Group height={"90vh"} classes={"relative"}>

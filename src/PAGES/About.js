@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Navigation1 } from "../UTILITIES/Navigation";
 import { useLocation } from "react-router-dom";
 import { Row } from "../COMPONENTS/Row";
@@ -12,6 +12,7 @@ import { screenHeight } from "../Global";
 
 export function About1() {
   const location = useLocation();
+
   useEffect(() => {
     window.scrollTo(0, 0);
     document.title = routes.find(
@@ -21,6 +22,7 @@ export function About1() {
 
   return (
     <div className="fade_in">
+      {routes.find((route) => `/${route.path}` === location.pathname).Helmet}
       {c_nav()}
       <Spacer height={"1vh"} />
       <Row>
@@ -29,7 +31,9 @@ export function About1() {
         </Group>
       </Row>
       <Row classes={"padding"}>
-        <h1 className="xlarge_text no_margin main_title_font">About Everything Bagel</h1>
+        <h1 className="xlarge_text no_margin main_title_font">
+          About Everything Bagel
+        </h1>
       </Row>
       <Row classes={"padding_h gap main_body_font"}>
         <Group>
@@ -74,8 +78,17 @@ export function About1() {
   );
 }
 export function About2() {
+  const location = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    document.title = routes.find(
+      (route) => `/${route.path}` === location.pathname
+    ).title;
+  }, []);
+
   return (
     <div className="fade_in">
+      {routes.find((route) => `/${route.path}` === location.pathname).Helmet}
       {c_nav()}
       <Row>
         <div style={{ padding: "2em" }}>
@@ -94,7 +107,7 @@ export function About2() {
             <Image
               image={img1}
               width={"76%"}
-              height={screenHeight * 0.6 }
+              height={screenHeight * 0.6}
               classes={"cover"}
             />
           </div>

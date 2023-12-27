@@ -1,5 +1,5 @@
-import React from "react";
-import { c_footer, c_nav } from "../Constants";
+import React, { useEffect } from "react";
+import { c_footer, c_nav, routes } from "../Constants";
 import { Row } from "../COMPONENTS/Row";
 import { Group } from "../COMPONENTS/Group";
 import { Spacer } from "../COMPONENTS/Spacer";
@@ -7,8 +7,10 @@ import { Image } from "../COMPONENTS/Image";
 // 
 import img1 from '../IMAGES/MAIN/stock1.jpg'
 import img2 from '../IMAGES/MAIN/stock2.jpg'
+import { useLocation } from "react-router-dom";
 
 export function Reviews1() {
+  const location = useLocation();
   const reviews = [
     {
       Review:
@@ -54,9 +56,17 @@ export function Reviews1() {
     },
   ];
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    document.title = routes.find(
+      (route) => `/${route.path}` === location.pathname
+    ).title;
+  }, [])
+  
+
   return (
     <div className="fade_in">
-      {c_nav()}
+      {routes.find((route) => `/${route.path}` === location.pathname).Helmet}{c_nav()}
       <div style={{width: "90%"}} className="center">
       <Row>
         <Group classes={"padding"}>

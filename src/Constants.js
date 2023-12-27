@@ -20,6 +20,7 @@ import { Footer1 } from "./UTILITIES/Footer";
 import { Navigation1 } from "./UTILITIES/Navigation";
 import OrderOrders from "./PAGES/OrderOrders";
 import Gallery1 from "./PAGES/Gallery";
+import { Helmet } from "react-helmet";
 
 // BUSINESS INFO
 export const c_businessName = "Happy Code Dev";
@@ -52,6 +53,21 @@ export const routes = [
     top_nav: true,
     hidden_nav: false,
     footer_nav: true,
+    Helmet: (
+      <Helmet>
+        <meta
+          name="description"
+          content={`Leading website and app development services at ${c_businessName}. Create innovative and scalable solutions with our expert team.`}
+        />
+        <meta
+          name="keywords"
+          content="website development, app development, web design, mobile app development, custom websites, responsive web, frontend, backend, SEO"
+        />
+        <meta name="author" content={`Innovative Internet Creations LLC`} />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="robots" content="index, follow" />
+      </Helmet>
+    )
   },
   {
     path: "2",
@@ -61,6 +77,21 @@ export const routes = [
     top_nav: true,
     hidden_nav: false,
     footer_nav: true,
+    Helmet: (
+      <Helmet>
+        <meta
+          name="description"
+          content={`Leading website and app development services at ${c_businessName}. Create innovative and scalable solutions with our expert team.`}
+        />
+        <meta
+          name="keywords"
+          content="website development, app development, web design, mobile app development, custom websites, responsive web, frontend, backend, SEO"
+        />
+        <meta name="author" content={`Innovative Internet Creations LLC`} />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="robots" content="index, follow" />
+      </Helmet>
+    )
   },
   {
     path: "about",
@@ -70,6 +101,22 @@ export const routes = [
     top_nav: true,
     hidden_nav: true,
     footer_nav: true,
+    Helmet: (
+      <Helmet>
+        <meta
+          name="description"
+          content={`Learn more about ${c_businessName} and our mission. Discover our team and the innovative solutions we provide in website and app development.`}
+        />
+        <meta
+          name="keywords"
+          content="about us, mission, team, website development, app development, innovation"
+        />
+        <meta name="author" content={`Innovative Internet Creations LLC`} />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="robots" content="index, follow" />
+      </Helmet>
+    ),
+    
   },
   {
     path: "about2",
@@ -79,6 +126,22 @@ export const routes = [
     top_nav: false,
     hidden_nav: false,
     footer_nav: false,
+    Helmet: (
+      <Helmet>
+        <meta
+          name="description"
+          content={`Learn more about ${c_businessName} and our mission. Discover our team and the innovative solutions we provide in website and app development.`}
+        />
+        <meta
+          name="keywords"
+          content="about us, mission, team, website development, app development, innovation"
+        />
+        <meta name="author" content={`Innovative Internet Creations LLC`} />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="robots" content="index, follow" />
+      </Helmet>
+    ),
+    
   },
   {
     path: "gallery",
@@ -88,6 +151,22 @@ export const routes = [
     top_nav: true,
     hidden_nav: true,
     footer_nav: true,
+    Helmet: (
+      <Helmet>
+        <meta
+          name="description"
+          content={`Explore the gallery of ${c_businessName}. View our portfolio and discover a collection of visually stunning website and app development projects.`}
+        />
+        <meta
+          name="keywords"
+          content="gallery, portfolio, website design, app development, visual projects"
+        />
+        <meta name="author" content={`Innovative Internet Creations LLC`} />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="robots" content="index, follow" />
+      </Helmet>
+    ),
+    
   },
   {
     path: "services",
@@ -97,6 +176,21 @@ export const routes = [
     top_nav: true,
     hidden_nav: true,
     footer_nav: true,
+    Helmet: (
+      <Helmet>
+        <meta
+          name="description"
+          content={`Discover the services offered by ${c_businessName}. From website development to app creation, our expert team provides innovative and customized solutions to meet your digital needs.`}
+        />
+        <meta
+          name="keywords"
+          content="services, website development, app development, custom solutions, digital services"
+        />
+        <meta name="author" content={`Innovative Internet Creations LLC`} />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="robots" content="index, follow" />
+      </Helmet>
+    ),    
   },
   {
     path: "contact",
@@ -106,6 +200,21 @@ export const routes = [
     top_nav: true,
     hidden_nav: true,
     footer_nav: true,
+    Helmet: (
+      <Helmet>
+        <meta
+          name="description"
+          content={`Contact ${c_businessName} for inquiries, collaborations, or to discuss your project. Reach out to our team for personalized assistance with website and app development.`}
+        />
+        <meta
+          name="keywords"
+          content="contact, inquiries, collaborations, website development, app development"
+        />
+        <meta name="author" content={`Innovative Internet Creations LLC`} />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="robots" content="index, follow" />
+      </Helmet>
+    ),    
   },
   {
     path: "menu",
@@ -115,6 +224,22 @@ export const routes = [
     top_nav: true,
     hidden_nav: true,
     footer_nav: true,
+    Helmet: (
+      <Helmet>
+        <meta
+          name="description"
+          content={`Explore the menu at ${c_businessName}. Discover a diverse range of offerings, from website development services to app creation. Choose the solutions that best suit your digital needs.`}
+        />
+        <meta
+          name="keywords"
+          content="menu, offerings, website development, app development, digital solutions"
+        />
+        <meta name="author" content={`Innovative Internet Creations LLC`} />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="robots" content="index, follow" />
+      </Helmet>
+    ),
+    
   },
   {
     path: "faq",
@@ -124,6 +249,22 @@ export const routes = [
     top_nav: true,
     hidden_nav: true,
     footer_nav: true,
+    Helmet: (
+      <Helmet>
+        <meta
+          name="description"
+          content={`Find answers to frequently asked questions about ${c_businessName}. Learn more about our services, policies, and commonly inquired topics in website and app development.`}
+        />
+        <meta
+          name="keywords"
+          content="FAQ, frequently asked questions, website development, app development, policies"
+        />
+        <meta name="author" content={`Innovative Internet Creations LLC`} />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="robots" content="index, follow" />
+      </Helmet>
+    ),
+    
   },
   {
     path: "locations",
@@ -133,6 +274,22 @@ export const routes = [
     top_nav: true,
     hidden_nav: true,
     footer_nav: true,
+    Helmet: (
+      <Helmet>
+        <meta
+          name="description"
+          content={`Explore the locations of ${c_businessName}. Find our offices and branches, and discover the accessibility of our website and app development services in various regions.`}
+        />
+        <meta
+          name="keywords"
+          content="locations, business branches, website development, app development, accessibility"
+        />
+        <meta name="author" content={`Innovative Internet Creations LLC`} />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="robots" content="index, follow" />
+      </Helmet>
+    ),
+    
   },
   {
     path: "events",
@@ -142,6 +299,22 @@ export const routes = [
     top_nav: true,
     hidden_nav: true,
     footer_nav: true,
+    Helmet: (
+      <Helmet>
+        <meta
+          name="description"
+          content={`Discover upcoming events hosted by ${c_businessName}. Stay informed about workshops, webinars, and gatherings related to website and app development.`}
+        />
+        <meta
+          name="keywords"
+          content="events, workshops, webinars, website development, app development, gatherings"
+        />
+        <meta name="author" content={`Innovative Internet Creations LLC`} />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="robots" content="index, follow" />
+      </Helmet>
+    ),
+    
   },
   {
     path: "reviews",
@@ -151,6 +324,22 @@ export const routes = [
     top_nav: true,
     hidden_nav: true,
     footer_nav: true,
+    Helmet: (
+      <Helmet>
+        <meta
+          name="description"
+          content={`Read reviews and testimonials about ${c_businessName}. Explore what our clients are saying about our top-notch website and app development services.`}
+        />
+        <meta
+          name="keywords"
+          content="reviews, testimonials, website development, app development, client feedback"
+        />
+        <meta name="author" content={`Innovative Internet Creations LLC`} />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="robots" content="index, follow" />
+      </Helmet>
+    ),
+    
   },
   {
     path: "blog",
@@ -160,6 +349,22 @@ export const routes = [
     top_nav: true,
     hidden_nav: true,
     footer_nav: true,
+    Helmet: (
+      <Helmet>
+        <meta
+          name="description"
+          content={`Explore insightful articles and updates on the ${c_businessName} blog. Stay informed about the latest trends in website and app development, industry news, and expert tips.`}
+        />
+        <meta
+          name="keywords"
+          content="blog, articles, website development, app development, industry news, expert tips"
+        />
+        <meta name="author" content={`Innovative Internet Creations LLC`} />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="robots" content="index, follow" />
+      </Helmet>
+    ),
+    
   },
   {
     path: "blogpost",
@@ -169,6 +374,21 @@ export const routes = [
     top_nav: false,
     hidden_nav: false,
     footer_nav: false,
+    Helmet: (
+      <Helmet>
+        <meta
+          name="description"
+          content={``}
+        />
+        <meta
+          name="keywords"
+          content={``}
+        />
+        <meta name="author" content={"Innovative Internet Creations LLC"} />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="robots" content="index, follow" />
+      </Helmet>
+    ),
   },
   {
     path: "team",
@@ -178,6 +398,22 @@ export const routes = [
     top_nav: true,
     hidden_nav: true,
     footer_nav: true,
+    Helmet: (
+      <Helmet>
+        <meta
+          name="description"
+          content={`Meet the talented team at ${c_businessName}. Learn about our skilled professionals in website and app development, and discover the expertise behind our innovative solutions.`}
+        />
+        <meta
+          name="keywords"
+          content="team, professionals, website development, app development, innovation, expertise"
+        />
+        <meta name="author" content={`Innovative Internet Creations LLC`} />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="robots" content="index, follow" />
+      </Helmet>
+    ),
+    
   },
   {
     path: "login",
@@ -187,6 +423,22 @@ export const routes = [
     top_nav: true,
     hidden_nav: true,
     footer_nav: true,
+    Helmet: (
+      <Helmet>
+        <meta
+          name="description"
+          content={`Log in to ${c_businessName}. Access your account for personalized services in website and app development.`}
+        />
+        <meta
+          name="keywords"
+          content="login, account, website development, app development, personalized services"
+        />
+        <meta name="author" content={`Innovative Internet Creations LLC`} />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="robots" content="noindex, nofollow" />
+      </Helmet>
+    ),
+    
   },
   {
     path: "orderonline",
@@ -196,6 +448,22 @@ export const routes = [
     top_nav: true,
     hidden_nav: true,
     footer_nav: true,
+    Helmet: (
+      <Helmet>
+        <meta
+          name="description"
+          content={`Order online from ${c_businessName}. Explore our menu and choose from a variety of website and app development services to meet your digital needs.`}
+        />
+        <meta
+          name="keywords"
+          content="order online, menu, website development, app development, digital services"
+        />
+        <meta name="author" content={`Innovative Internet Creations LLC`} />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="robots" content="index, follow" />
+      </Helmet>
+    ),
+    
   },
   {
     path: "ordercart",
@@ -205,6 +473,22 @@ export const routes = [
     top_nav: false,
     hidden_nav: false,
     footer_nav: false,
+    Helmet: (
+      <Helmet>
+        <meta
+          name="description"
+          content={`View and manage your order cart at ${c_businessName}. Review the selected website and app development services before confirming your order.`}
+        />
+        <meta
+          name="keywords"
+          content="order cart, review order, website development, app development, digital services"
+        />
+        <meta name="author" content={`Innovative Internet Creations LLC`} />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="robots" content="index, follow" />
+      </Helmet>
+    ),
+    
   },
   {
     path: "orderconfirmation",
@@ -223,6 +507,22 @@ export const routes = [
     top_nav: false,
     hidden_nav: false,
     footer_nav: false,
+    Helmet: (
+      <Helmet>
+        <meta
+          name="description"
+          content={`Log in to ${c_businessName}. Access your account for personalized services in website and app development.`}
+        />
+        <meta
+          name="keywords"
+          content="login, account, website development, app development, personalized services"
+        />
+        <meta name="author" content={`Innovative Internet Creations LLC`} />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="robots" content="noindex, nofollow" />
+      </Helmet>
+    ),
+    
   },
   {
     path: "orders",
@@ -232,6 +532,22 @@ export const routes = [
     top_nav: false,
     hidden_nav: false,
     footer_nav: false,
+    Helmet: (
+      <Helmet>
+        <meta
+          name="description"
+          content={`View your orders at ${c_businessName}. Review and track the website and app development services you've ordered.`}
+        />
+        <meta
+          name="keywords"
+          content="orders, order history, website development, app development, order tracking"
+        />
+        <meta name="author" content={`Innovative Internet Creations LLC`} />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="robots" content="index, follow" />
+      </Helmet>
+    ),
+    
   },
   {
     path: "test",

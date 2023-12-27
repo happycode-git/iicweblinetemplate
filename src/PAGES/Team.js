@@ -1,12 +1,14 @@
-import React from "react";
-import { c_footer, c_nav } from "../Constants";
+import React, { useEffect } from "react";
+import { c_footer, c_nav, routes } from "../Constants";
 import { Row } from "../COMPONENTS/Row";
 import { Group } from "../COMPONENTS/Group";
 //
 import img1 from "../IMAGES/MAIN/stock1.jpg";
 import { Block4 } from "../COMPONENTS/Blocks";
+import { useLocation } from "react-router-dom";
 
 export function Team1() {
+  const location = useLocation();
   const teamMembers = [
     {
       Name: "John Doe",
@@ -25,9 +27,17 @@ export function Team1() {
       },
   ];
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    document.title = routes.find(
+      (route) => `/${route.path}` === location.pathname
+    ).title;
+  }, [])
+  
+
   return (
     <div className="fade_in">
-      {c_nav()}
+      {routes.find((route) => `/${route.path}` === location.pathname).Helmet}{c_nav()}
       <div className="padding_v">
         <Row>
           <Group width={"80vw"} classes={"center"}>

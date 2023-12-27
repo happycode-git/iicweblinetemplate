@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Navigation1 } from "../UTILITIES/Navigation";
 import { Footer1 } from "../UTILITIES/Footer";
 import { Spacer } from "../COMPONENTS/Spacer";
@@ -12,9 +12,11 @@ import img3 from "../IMAGES/MAIN/stock7.jpg";
 import img4 from "../IMAGES/MAIN/stock8.jpg";
 import img5 from "../IMAGES/MAIN/stock9.jpg";
 import img6 from "../IMAGES/MAIN/stock10.jpg";
-import { c_footer, c_nav } from "../Constants";
+import { c_footer, c_nav, routes } from "../Constants";
+import { useLocation } from "react-router-dom";
 
 export default function Services1() {
+  const location = useLocation();
   const services = [
     {
       Service: "Service One Bagel",
@@ -48,9 +50,17 @@ export default function Services1() {
     },
   ];
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    document.title = routes.find(
+      (route) => `/${route.path}` === location.pathname
+    ).title;
+  }, [])
+  
+
   return (
     <div className="fade_in">
-     {c_nav()}
+     {routes.find((route) => `/${route.path}` === location.pathname).Helmet}{c_nav()}
       <Spacer height={"1vh"} />
       <Row>
         <Group>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Navigation1 } from "../UTILITIES/Navigation";
 import { Footer1 } from "../UTILITIES/Footer";
 import { Row } from "../COMPONENTS/Row";
@@ -21,6 +21,7 @@ import {
   c_nav,
   c_phone,
   contactTemplateID,
+  routes,
 } from "../Constants";
 import Loading from "../UTILITIES/Loading";
 import {
@@ -29,8 +30,10 @@ import {
   function_sendEmail,
   randomString,
 } from "../Global";
+import { useLocation } from "react-router-dom";
 
 export function Contact1() {
+  const location = useLocation();
   const [loading, setLoading] = useState(false);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -115,10 +118,18 @@ export function Contact1() {
     console.log(message);
   }
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    document.title = routes.find(
+      (route) => `/${route.path}` === location.pathname
+    ).title;
+  }, [])
+  
+
   return (
     <div className="fade_in">
       {loading && <Loading />}
-      {c_nav()}
+      {routes.find((route) => `/${route.path}` === location.pathname).Helmet}{c_nav()}
       <Row>
         <Group>
           <Block2 heading={"Keep in touch!"} classes={"main_title_font"} />

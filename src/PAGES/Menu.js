@@ -1,6 +1,4 @@
-import React from "react";
-import { Navigation1 } from "../UTILITIES/Navigation";
-import { Footer1 } from "../UTILITIES/Footer";
+import React, { useEffect } from "react";
 import { Row } from "../COMPONENTS/Row";
 import { Group } from "../COMPONENTS/Group";
 import { Block1 } from "../COMPONENTS/Blocks";
@@ -11,10 +9,12 @@ import img2 from "../IMAGES/MAIN/stock2.jpg";
 import img3 from "../IMAGES/MAIN/stock3.jpg";
 import img4 from "../IMAGES/MAIN/stock4.jpg";
 import img5 from "../IMAGES/MAIN/stock5.jpg";
-import { c_footer, c_nav } from "../Constants";
+import { c_footer, c_nav, routes } from "../Constants";
 import { Spacer } from "../COMPONENTS/Spacer";
+import { useLocation } from "react-router-dom";
 
 export function Menu1() {
+  const location = useLocation()
   const drinks = [
     {
       Name: "Pepsi",
@@ -171,10 +171,16 @@ export function Menu1() {
       Details: "Warm apple crisp with a crispy oat topping.",
     },
   ];
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    document.title = routes.find(
+      (route) => `/${route.path}` === location.pathname
+    ).title;
+  }, []);
 
   return (
     <div className="fade_in">
-      {c_nav()}
+      {routes.find((route) => `/${route.path}` === location.pathname).Helmet}{c_nav()}
       <Row classes={"padding_v"}>
         <Group height={"70vh"} classes={"relative"}>
           <Image image={img1} classes={"cover"} />
@@ -216,9 +222,7 @@ export function Menu1() {
                       {thing.Prices.map((price, j) => {
                         return (
                           <div key={j}>
-                            <p
-                              className="bold right_text no_margin"
-                            >
+                            <p className="bold right_text no_margin">
                               {price.Size}
                             </p>
                             <p className="right_text no_margin">

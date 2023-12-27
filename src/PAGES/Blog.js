@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { c_footer, c_nav } from "../Constants";
+import React, { useEffect, useState } from "react";
+import { c_footer, c_nav, routes } from "../Constants";
 import { Row } from "../COMPONENTS/Row";
 import { Group } from "../COMPONENTS/Group";
 import { Block1, Block4 } from "../COMPONENTS/Blocks";
@@ -7,9 +7,10 @@ import { Block1, Block4 } from "../COMPONENTS/Blocks";
 import img1 from "../IMAGES/MAIN/stock1.jpg";
 import { Image } from "../COMPONENTS/Image";
 import { Box1 } from "../COMPONENTS/Box";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 export function Blog1() {
+  const location = useLocation();
   const navigate = useNavigate();
   //
   const blogs = [
@@ -22,9 +23,16 @@ export function Blog1() {
       Author: "Happy Code Bagel",
     },
   ];
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    document.title = routes.find(
+      (route) => `/${route.path}` === location.pathname
+    ).title;
+  }, [])
+  
   return (
     <div className="">
-      {c_nav()}
+      {routes.find((route) => `/${route.path}` === location.pathname).Helmet}{c_nav()}
       <div className="padding_v">
         {blogs.map((post, i) => {
           return (

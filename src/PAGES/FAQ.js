@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { Navigation1 } from "../UTILITIES/Navigation";
-import { Footer1 } from "../UTILITIES/Footer";
 import { Row } from "../COMPONENTS/Row";
 import { Group } from "../COMPONENTS/Group";
 import { Textfield } from "../COMPONENTS/Textfield";
 import { Spacer } from "../COMPONENTS/Spacer";
-import { c_footer, c_nav } from "../Constants";
+import { c_footer, c_nav, routes } from "../Constants";
+import { useLocation } from "react-router-dom";
 
 export function FAQ1() {
+  const location = useLocation();
   const [faqs, setFaqs] = useState([]);
   const [searchStr, setSearchStr] = useState("");
 
@@ -68,12 +68,16 @@ export function FAQ1() {
   }
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+    document.title = routes.find(
+      (route) => `/${route.path}` === location.pathname
+    ).title;
     setFaqs(things);
   }, []);
 
   return (
     <div className="fade_in">
-      {c_nav()}
+      {routes.find((route) => `/${route.path}` === location.pathname).Helmet}{c_nav()}
       <Row>
         <Group width={"80vw"} classes={"center padding_v"}>
           <h1 className="xlarge_text main_title_font">

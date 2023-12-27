@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { c_footer, c_nav } from "../Constants";
+import React, { useEffect, useState } from "react";
+import { c_footer, c_nav, routes } from "../Constants";
 import { Row } from "../COMPONENTS/Row";
 import img1 from "../IMAGES/MAIN/stock1.jpg";
 import img2 from "../IMAGES/MAIN/stock2.jpg";
@@ -10,20 +10,37 @@ import img6 from "../IMAGES/MAIN/stock6.jpg";
 import img7 from "../IMAGES/MAIN/stock7.jpg";
 import img8 from "../IMAGES/MAIN/stock8.jpg";
 import img9 from "../IMAGES/MAIN/stock9.jpg";
-import img10 from "../IMAGES/MAIN/stock10.jpg";
 import { Image } from "../COMPONENTS/Image";
 import { Group } from "../COMPONENTS/Group";
 import { screenHeight, screenWidth } from "../Global";
 import { Spacer } from "../COMPONENTS/Spacer";
 import { Clickable } from "../COMPONENTS/Clickable";
-import { FaXmark } from "react-icons/fa6";
+import { useLocation } from "react-router-dom";
 
 export default function Gallery1() {
-  const images = [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10];
+  const location = useLocation();
+  const images = [
+    {Image: img1, Alt: ""},
+    {Image: img2, Alt: ""},
+    {Image: img3, Alt: ""},
+    {Image: img4, Alt: ""},
+    {Image: img5, Alt: ""},
+    {Image: img6, Alt: ""},
+    {Image: img7, Alt: ""},
+    {Image: img8, Alt: ""},
+    {Image: img9, Alt: ""},
+  ];
   const [chosenImage, setChosenImage] = useState(null);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    document.title = routes.find(
+      (route) => `/${route.path}` === location.pathname
+    ).title;
+  }, [])
+  
   return (
     <div className="fade_in main_title_font">
-      {c_nav()}
+      {routes.find((route) => `/${route.path}` === location.pathname).Helmet}{c_nav()}
       <h1 className="xlarge_text center_text" style={{ letterSpacing: "-1px" }}>
         Take a closer look
       </h1>
@@ -37,9 +54,10 @@ export default function Gallery1() {
                 }}
               >
                 <Image
-                  image={image}
+                  image={image.Image}
                   height={screenHeight * 0.4}
                   classes={"cover"}
+                  alt={image.Alt}
                 />
               </Clickable>
             </Group>
@@ -58,12 +76,13 @@ export default function Gallery1() {
           <div className="center_text relative" style={{}}>
             <Spacer height={"30px"} />
             <img
-              src={chosenImage}
+              src={chosenImage.Image}
               className="cover"
               style={{
                 maxWidth: screenWidth * 0.8,
                 maxHeight: screenHeight * 0.8,
               }}
+              alt={chosenImage.Alt}
             />
           </div>
         </div>

@@ -95,7 +95,7 @@ export function OrderOnline1() {
   return (
     <div className="fade_in">
       {loading && <Loading />}
-      {c_nav()}
+      {routes.find((route) => `/${route.path}` === location.pathname).Helmet}{c_nav()}
       <Spacer height={20} />
       <Row>
         <Group>
