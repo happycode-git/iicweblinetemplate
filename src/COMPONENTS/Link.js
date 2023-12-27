@@ -6,7 +6,7 @@ export function Link1({ text, size, font, onClick, classes }) {
       onClick={() => {
         onClick !== undefined ? onClick() : console.log("No click events");
       }}
-      className={`${classes} bg_clear ${font} pointer`}
+      className={`${classes} bg_clear ${font} pointer main_body_font`}
       style={{
         border: "0",
         fontSize: size,

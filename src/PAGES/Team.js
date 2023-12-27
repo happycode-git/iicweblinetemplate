@@ -26,13 +26,13 @@ export function Team1() {
   ];
 
   return (
-    <div className="roboto fade_in">
+    <div className="fade_in">
       {c_nav()}
       <div className="padding_v">
         <Row>
           <Group width={"80vw"} classes={"center"}>
             <h1
-              className="center_text"
+              className="center_text main_title_font"
               style={{ fontSize: "6em", lineHeight: "1em" }}
             >
               Meet our team.

@@ -36,6 +36,7 @@ export function Block2({
       }}
     >
       <h1
+      className="main_title_font"
         style={{
           fontSize: headingSize !== undefined ? headingSize : "5em",
           lineHeight: "1em",
@@ -68,6 +69,7 @@ export function Block3({
       }}
     >
       <h1
+      className="main_title_font"
         style={{
           fontSize: headingSize !== undefined ? headingSize : "4em",
           lineHeight: "1em",
@@ -76,7 +78,7 @@ export function Block3({
         {heading}
       </h1>
       <p
-        className="medium_text"
+        className="medium_text main_body_font"
         style={{
           fontSize: textSize !== undefined ? textSize : "1.3em",
         }}
@@ -110,13 +112,14 @@ export function Block4({
         style={{ width: "100%", maxHeight: "40vh", borderRadius: "6px" }}
       />
       <h2
+      className="main_title_font"
         style={{
           fontSize: headingSize !== undefined ? headingSize : "1.6em",
         }}
       >
         {heading}
       </h2>
-      <p style={{ fontSize: textSize !== undefined ? textSize : "16px" }}>
+      <p className="main_body_font" style={{ fontSize: textSize !== undefined ? textSize : "16px" }}>
         {text}
       </p>
     </div>

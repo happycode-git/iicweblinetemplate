@@ -1,5 +1,5 @@
 import { BlogPost } from "./BLOGS/BlogPost";
-import { About1 } from "./PAGES/About";
+import { About1, About2 } from "./PAGES/About";
 import { Blog1 } from "./PAGES/Blog";
 import { Contact1 } from "./PAGES/Contact";
 import { Events1 } from "./PAGES/Events";
@@ -7,9 +7,10 @@ import { FAQ1 } from "./PAGES/FAQ";
 import { Home1 } from "./PAGES/Home";
 import { Home2 } from "./PAGES/Home";
 import { Locations1 } from "./PAGES/Locations";
-import OrderLogin from "./PAGES/Login";
-import { Menu1 } from "./PAGES/Menu";
+import { Login, OrderLogin } from "./PAGES/Login";
+import { Menu1, Menu2 } from "./PAGES/Menu";
 import OrderCart1 from "./PAGES/OrderCart";
+import OrderConfirmation from "./PAGES/OrderConfirmation";
 import { OrderOnline1 } from "./PAGES/OrderOnline";
 import { Reviews1 } from "./PAGES/Reviews";
 import Services1 from "./PAGES/Services";
@@ -17,6 +18,8 @@ import { Team1 } from "./PAGES/Team";
 import Test from "./PAGES/Test";
 import { Footer1 } from "./UTILITIES/Footer";
 import { Navigation1 } from "./UTILITIES/Navigation";
+import OrderOrders from "./PAGES/OrderOrders";
+import Gallery1 from "./PAGES/Gallery";
 
 // BUSINESS INFO
 export const c_businessName = "Happy Code Dev";
@@ -64,6 +67,24 @@ export const routes = [
     element: <About1 />,
     text: "About",
     title: "About | The best websites in the world!",
+    top_nav: true,
+    hidden_nav: true,
+    footer_nav: true,
+  },
+  {
+    path: "about2",
+    element: <About2 />,
+    text: "About",
+    title: "About | The best websites in the world!",
+    top_nav: false,
+    hidden_nav: false,
+    footer_nav: false,
+  },
+  {
+    path: "gallery",
+    element: <Gallery1 />,
+    text: "Gallery",
+    title: "Gallery | The best websites in the world!",
     top_nav: true,
     hidden_nav: true,
     footer_nav: true,
@@ -159,6 +180,15 @@ export const routes = [
     footer_nav: true,
   },
   {
+    path: "login",
+    element: <Login />,
+    text: "Login",
+    title: "Login | The best websites in the world!",
+    top_nav: true,
+    hidden_nav: true,
+    footer_nav: true,
+  },
+  {
     path: "orderonline",
     element: <OrderOnline1 />,
     text: "Order Online",
@@ -177,8 +207,26 @@ export const routes = [
     footer_nav: false,
   },
   {
+    path: "orderconfirmation",
+    element: <OrderConfirmation />,
+    text: "Order Confirmed",
+    title: "Order Confirmed | The best websites in the world!",
+    top_nav: false,
+    hidden_nav: false,
+    footer_nav: false,
+  },
+  {
     path: "orderlogin",
     element: <OrderLogin />,
+    text: "Order Login",
+    title: "Order Login | The best websites in the world!",
+    top_nav: false,
+    hidden_nav: false,
+    footer_nav: false,
+  },
+  {
+    path: "orders",
+    element: <OrderOrders />,
     text: "Order Login",
     title: "Order Login | The best websites in the world!",
     top_nav: false,

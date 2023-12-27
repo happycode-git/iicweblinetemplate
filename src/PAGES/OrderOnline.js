@@ -12,7 +12,7 @@ import {
   screenHeight,
 } from "../Global";
 import { useLocation, useNavigate } from "react-router-dom";
-import { routes } from "../Constants";
+import { c_footer, c_nav, routes } from "../Constants";
 import { FaCartShopping, FaXmark } from "react-icons/fa6";
 import { HiMiniXMark } from "react-icons/hi2";
 
@@ -27,6 +27,8 @@ import { FaMinus } from "react-icons/fa";
 import { FaPlus } from "react-icons/fa";
 import Loading from "../UTILITIES/Loading";
 import { Textfield } from "../COMPONENTS/Textfield";
+import { IoDocumentText } from "react-icons/io5";
+import { FaSignOutAlt } from "react-icons/fa";
 
 export function OrderOnline1() {
   const navigate = useNavigate();
@@ -39,8 +41,10 @@ export function OrderOnline1() {
   const [showItem, setShowItem] = useState(true);
   const [quantity, setQuantity] = useState(1);
   const [details, setDetails] = useState("");
+  const [userID, setUserID] = useState("");
 
   function onChooseCategory(category) {
+    setChosenCat(category)
     const newArr = allItems.filter((item) => item.Category === category);
     if (category === "All") {
       setItems(allItems);
@@ -48,7 +52,6 @@ export function OrderOnline1() {
       setItems(newArr);
     }
   }
-
   function onTypeDetails(text) {
     setDetails(text);
   }
@@ -58,6 +61,13 @@ export function OrderOnline1() {
     document.title = routes.find(
       (route) => `/${route.path}` === location.pathname
     ).title;
+    auth_IsUserSignedIn(
+      setLoading,
+      navigate,
+      "/orderonline",
+      "/orderonline",
+      setUserID
+    );
     firebase_GetAllDocumentsListener(
       setLoading,
       "Items",
@@ -83,32 +93,49 @@ export function OrderOnline1() {
   }, []);
 
   return (
-    <div className="fade_in roboto">
+    <div className="fade_in">
       {loading && <Loading />}
-      <Navigation1 />
+      {c_nav()}
       <Spacer height={20} />
       <Row>
         <Group>
           <div className="separate_horizontal">
-            <h1 className="no_margin">Order Menu</h1>
-            <Clickable
-              classes={"padding_h"}
-              onClick={() => {
-                navigate("/ordercart");
-              }}
-            >
-              <FaCartShopping size={"2em"} />
-            </Clickable>
+            <h1 className="no_margin main_title_font xlarge_text">Order Menu</h1>
+            {userID !== "" && (
+              <div className="horizontal no_gap full_radius" style={{backgroundColor: "rgba(0,0,0,0.1)", padding: "10px 15px"}}>
+                <Clickable
+                  onClick={() => {
+                    navigate("/orders");
+                  }}
+                >
+                  <IoDocumentText size={"2em"} />
+                </Clickable>
+                <Clickable
+                  classes={"padding_h"}
+                  onClick={() => {
+                    navigate("/ordercart");
+                  }}
+                >
+                  <FaCartShopping size={"2em"} />
+                </Clickable>
+                <Clickable
+                  onClick={() => {
+                    auth_SignOut(setLoading, navigate, "/orderlogin");
+                  }}
+                >
+                  <FaSignOutAlt size={"2em"} color="red" />
+                </Clickable>
+              </div>
+            )}
           </div>
           <div
             style={{
               overflowX: "scroll",
               gap: 0,
-              borderRadius: 6,
               width: "fit-content",
-              border: "1px solid rgba(0,0,0,0.1)",
+              backgroundColor: "rgba(0,0,0,0.05)"
             }}
-            className="horizontal margin_v_small"
+            className="horizontal margin_v_small full_radius main_body_font"
           >
             {["All", ...new Set(items.map((item) => item.Category))].map(
               (cat, i) => {
@@ -152,8 +179,8 @@ export function OrderOnline1() {
               >
                 <AsyncImage path={item.ImagePath} height={200} width={"auto"} />
                 <Spacer height={6} />
-                <h1 className="no_margin small_text">{item.Name}</h1>
-                <p className="no_margin">${item.Price.toFixed(2)}</p>
+                <h1 className="no_margin medium_text main_title_font">{item.Name}</h1>
+                <p className="no_margin main_body_font">${item.Price.toFixed(2)}</p>
               </Clickable>
             </Group>
           );
@@ -187,7 +214,7 @@ export function OrderOnline1() {
                 }}
               >
                 <HiMiniXMark size={25} />
-                <p className="roboto no_margin">Close</p>
+                <p className="main_body_font no_margin">Close</p>
               </Clickable>
             </div>
             <AsyncImage
@@ -195,9 +222,9 @@ export function OrderOnline1() {
               width={"auto"}
               height={"auto"}
             />
-            <h1 className="no_margin">{chosenItem.Name}</h1>
-            <p className="no_margin">${chosenItem.Price.toFixed(2)}</p>
-            <p className="" style={{ fontSize: 14 }}>
+            <h1 className="no_margin main_title_font">{chosenItem.Name}</h1>
+            <p className="no_margin main_body_font">${chosenItem.Price.toFixed(2)}</p>
+            <p className="main_body_font" style={{ fontSize: 14 }}>
               {chosenItem.Description}
             </p>
             <div>
@@ -240,7 +267,6 @@ export function OrderOnline1() {
               width={"100%"}
               onClick={() => {
                 if (myID === "") {
-
                   auth_IsUserSignedIn(
                     setLoading,
                     navigate,
@@ -255,14 +281,14 @@ export function OrderOnline1() {
                     Name: chosenItem.Name,
                     ImagePath: chosenItem.ImagePath,
                     Details: details,
-                    UserID: me.id
+                    UserID: me.id,
                   };
                   firebase_CreateDocument(
                     args,
                     "OrderCartItems",
                     randomString(25)
                   ).then(() => {
-                    setLoading(false)
+                    setLoading(false);
                     setShowItem(false);
                     setChosenItem({});
                     setDetails("");
@@ -271,13 +297,14 @@ export function OrderOnline1() {
                   });
                 }
               }}
+              classes={"main_title_font"}
             />
           </div>
         </div>
       )}
 
       <Spacer height={20} />
-      <Footer1 />
+      {c_footer()}
     </div>
   );
 }

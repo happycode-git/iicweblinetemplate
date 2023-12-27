@@ -14,14 +14,26 @@ import {
 } from "firebase/firestore";
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, sendPasswordResetEmail, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  getAuth,
+  onAuthStateChanged,
+  sendPasswordResetEmail,
+  signInWithEmailAndPassword,
+  signOut,
+} from "firebase/auth";
 import {
   getStorage,
   ref,
   uploadBytesResumable,
   getDownloadURL,
 } from "firebase/storage";
-import { c_businessName, c_email, emailPublicKey, emailServiceID } from "./Constants";
+import {
+  c_businessName,
+  c_email,
+  emailPublicKey,
+  emailServiceID,
+} from "./Constants";
 import emailjs from "@emailjs/browser";
 import { renderToString } from "react-dom/server";
 
@@ -41,7 +53,7 @@ const storage = getStorage();
 const auth = getAuth();
 export var me = {};
 export var myID = "";
-export var myToken = ""
+export var myToken = "";
 
 export const screenHeight = window.innerHeight;
 export const screenWidth = window.innerWidth;
@@ -68,12 +80,17 @@ export function function_sendEmail(toEmail, subject, HTML, templateID) {
       subject: subject,
       fromEmail: c_email,
       replyTo: c_email,
-      HTML: renderToString(HTML)
+      HTML: renderToString(HTML),
     },
     emailPublicKey
   );
 }
-export function function_sendBusinessEmail(fromEmail, subject, HTML, templateID) {
+export function function_sendBusinessEmail(
+  fromEmail,
+  subject,
+  HTML,
+  templateID
+) {
   emailjs.send(
     emailServiceID,
     templateID,
@@ -83,7 +100,7 @@ export function function_sendBusinessEmail(fromEmail, subject, HTML, templateID)
       subject: subject,
       fromEmail: fromEmail,
       replyTo: fromEmail,
-      HTML: renderToString(HTML)
+      HTML: renderToString(HTML),
     },
     emailPublicKey
   );
@@ -101,7 +118,7 @@ export async function auth_IsUserSignedIn(
     if (user) {
       const uid = user.uid;
       myID = uid;
-      setter(uid)
+      setter(uid);
       firebase_UpdateToken(myToken);
       firebase_GetMe(uid);
       navigation(ifLoggedIn);
@@ -112,13 +129,7 @@ export async function auth_IsUserSignedIn(
     }
   });
 }
-export function auth_SignIn(
-  setLoading,
-  email,
-  password,
-  navigation,
-  redirect
-) {
+export function auth_SignIn(setLoading, email, password, navigation, redirect) {
   signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       // Signed in
@@ -129,7 +140,7 @@ export function auth_SignIn(
       firebase_GetMe(userID);
       console.log(userID);
       setLoading(false);
-      navigation(redirect)
+      navigation(redirect);
       // ...
     })
     .catch((error) => {
@@ -144,7 +155,7 @@ export function auth_SignOut(setLoading, navigation, redirect) {
       // Sign-out successful.
       setLoading(false);
       console.log("USER SIGNED OUT");
-      navigation(redirect)
+      navigation(redirect);
     })
     .catch((error) => {
       // An error happened.
@@ -169,14 +180,14 @@ export function auth_CreateUser(
       firebase_UpdateToken(myToken);
       firebase_CreateUser(args, uid).then(() => {
         setLoading(false);
-        navigation(redirect)
+        navigation(redirect);
       });
       // ...
     })
     .catch((error) => {
       // const errorCode = error.code;
       const errorMessage = error.message;
-      alert(errorMessage)
+      alert(errorMessage);
       setLoading(false);
       // ..
     });
@@ -186,11 +197,11 @@ export function auth_ResetPassword(email) {
     .then(() => {
       // Password reset email sent!
       // ..
-     alert("Please check your email for a reset password link.")
+      alert("Please check your email for a reset password link.");
     })
     .catch((error) => {
       const errorMessage = error.message;
-      alert(errorMessage)
+      alert(errorMessage);
       // ..
     });
 }
@@ -355,6 +366,24 @@ export async function firebase_DeleteDocument(setLoading, table, documentID) {
   await deleteDoc(doc(db, table, documentID));
   setLoading(false);
 }
+export async function firebase_DeleteDocuments(
+  setLoading,
+  table,
+  whereField,
+  whereValue
+) {
+  const collectionRef = collection(db, table);
+  let queryRef = collectionRef;
+  queryRef = query(queryRef, where(whereField, "==", whereValue));
+  const querySnapshot = await getDocs(queryRef);
+  const things = [];
+
+  querySnapshot.forEach((doc) => {
+    const id = doc.id;
+    firebase_DeleteDocument(setLoading, table, id);
+  });
+  setLoading(false);
+}
 export async function firebase_UpdateToken(token) {
   const washingtonRef = doc(db, "Users", myID);
 
@@ -407,6 +436,6 @@ export async function storage_DownloadImage(path, setter) {
     setter(url);
   } catch (error) {
     // Handle any errors
-    console.error('Error downloading image:', error.message);
+    console.error("Error downloading image:", error.message);
   }
 }

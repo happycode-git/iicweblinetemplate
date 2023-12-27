@@ -49,7 +49,7 @@ export default function Services1() {
   ];
 
   return (
-    <div className="roboto fade_in">
+    <div className="fade_in">
      {c_nav()}
       <Spacer height={"1vh"} />
       <Row>

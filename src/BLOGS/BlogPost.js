@@ -10,7 +10,7 @@ export function BlogPost() {
   const post = location.state;
   const navigate = useNavigate();
   return (
-    <div className="roboto">
+    <div className="">
       {c_nav()}
       <div className={"separate_horizontal padding"}>
         <FaArrowLeftLong

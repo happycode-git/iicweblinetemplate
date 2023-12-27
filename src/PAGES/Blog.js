@@ -23,18 +23,18 @@ export function Blog1() {
     },
   ];
   return (
-    <div className="roboto">
+    <div className="">
       {c_nav()}
       <div className="padding_v">
         {blogs.map((post, i) => {
           return (
-            <div
+            <div key={i}
               onClick={() => {
                 navigate("/blogpost", { state: post });
               }}
             >
               <Row
-                backgroundColor={"#E5F3FF"}
+                backgroundColor={"#F6F5FF"}
                 classes={"padding pointer hover radius"}
               >
                 <Group height={"60vh"} classes={"separate_vertical"}>
@@ -42,19 +42,19 @@ export function Blog1() {
                   <Block1 width={"80%"} classes={"center"}>
                     <h1
                       style={{ fontSize: "2.6em", lineHeight: "1em" }}
-                      className=""
+                      className="main_title_font"
                     >
                       {post.Title}
                     </h1>
-                    <p>{post.Desc}</p>
+                    <p className="main_body_font">{post.Desc}</p>
                     <Box1
                       backgroundColor={"#60D0FF"}
                       width={"200px"}
                       height={"6px"}
                     />
-                    <div className="separate_horizontal">
-                      <p className="">{post.Date}</p>
-                      <p className="bold">Written By {post.Author}</p>
+                    <div className="separate_horizontal main_body_font">
+                      <p className="main_body_font">{post.Date}</p>
+                      <p className="bold main_title_font medium_text">Written By {post.Author}</p>
                     </div>
                   </Block1>
                   <div></div>

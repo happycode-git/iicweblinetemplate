@@ -55,12 +55,12 @@ export function Reviews1() {
   ];
 
   return (
-    <div className="roboto fade_in">
+    <div className="fade_in">
       {c_nav()}
       <div style={{width: "90%"}} className="center">
       <Row>
         <Group classes={"padding"}>
-          <h1 style={{ fontSize: "6vh" }}>See what they are saying..</h1>
+          <h1 className="xxlarge_text main_title_font">See what they are saying..</h1>
         </Group>
       </Row>
       
@@ -68,12 +68,12 @@ export function Reviews1() {
         {reviews.map((review, i) => {
           return (
             <div key={i} className="padding" style={{ backgroundColor: "rgba(0,0,0,0.05)" }}>
-              <h1 className="no_margin" style={{ fontSize: "6em" }}>
+              <h1 className="no_margin main_title_font" style={{ fontSize: "6em" }}>
                 {review.Rating}
               </h1>
-              <p>{review.Review}</p>
-              <div className="separate_horizontal">
-                <p className="no_margin bold">{review.Reviewer}</p>
+              <p className="main_body_font">{review.Review}</p>
+              <div className="separate_horizontal main_body_font">
+                <p className="no_margin bold main_title_font medium_text">{review.Reviewer}</p>
                 <p className="no_margin">{review.Date}</p>
               </div>
             </div>

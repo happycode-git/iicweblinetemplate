@@ -104,7 +104,6 @@ export function Contact1() {
       alert("Please fill out the entire form.");
     }
   }
-
   function onTypeName(text) {
     setName(text);
   }
@@ -117,15 +116,15 @@ export function Contact1() {
   }
 
   return (
-    <div className="roboto fade_in">
+    <div className="fade_in">
       {loading && <Loading />}
       {c_nav()}
       <Row>
         <Group>
-          <Block2 heading={"Keep in touch!"} classes={"margin_h"} />
+          <Block2 heading={"Keep in touch!"} classes={"main_title_font"} />
         </Group>
       </Row>
-      <Row classes={"padding gap"}>
+      <Row classes={"padding gap main_body_font"}>
         <Group classes={"padding_h"}>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a
@@ -149,12 +148,12 @@ export function Contact1() {
           </div>
         </Group>
       </Row>
-      <Row>
+      <Row classes={"main_body_font"}>
         <Group>
           <Map address={c_address} height={"100%"} classes={"radius"} />
         </Group>
         <Group classes={"padding_h vertical"}>
-          <h2>Contact Form</h2>
+          <h2 className="main_title_font">Contact Form</h2>
           <Textfield
             id="tbName"
             placeholder={"Full Name"}
@@ -184,7 +183,7 @@ export function Contact1() {
             text={"Submit"}
             paddingV={"0.8em"}
             backgroundColor={"black"}
-            classes={"white thin"}
+            classes={"white main_title_font"}
             radius={"6px"}
             onClick={onSubmit}
             textColor={"white"}

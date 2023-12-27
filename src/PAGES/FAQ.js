@@ -72,14 +72,14 @@ export function FAQ1() {
   }, []);
 
   return (
-    <div className="roboto fade_in">
+    <div className="fade_in">
       {c_nav()}
       <Row>
         <Group width={"80vw"} classes={"center padding_v"}>
-          <h1 className="xlarge_text">
+          <h1 className="xlarge_text main_title_font">
             Need some help getting information?
           </h1>
-          <p>
+          <p className="main_body_font">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a
             augue et tellus varius accumsan. Integer auctor nunc dui, ut
             vehicula turpis pretium accumsan. Sed ullamcorper tortor justo, vel
@@ -94,7 +94,7 @@ export function FAQ1() {
           <Textfield
             placeholder={"Enter keyword here..."}
             width={"350px"}
-            className={"center"}
+            className={"center main_body_font"}
             setter={setSearchStr}
             onTyping={onSearch}
           />
@@ -109,9 +109,9 @@ export function FAQ1() {
               backgroundColor={"rgba(0,0,0,0.05)"}
               padding={"2em"}
             >
-              <p style={{ fontSize: "20px" }} className="no_margin">Q: {thing.Question}</p>
+              <p style={{ fontSize: "20px" }} className="no_margin main_title_font">Q: {thing.Question}</p>
               <Spacer height={"12px"} />
-              <p className="bold no_margin">A: {thing.Answer}</p>
+              <p className="no_margin main_body_font">A: {thing.Answer}</p>
             </Group>
           );
         })}

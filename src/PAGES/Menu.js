@@ -7,11 +7,12 @@ import { Block1 } from "../COMPONENTS/Blocks";
 import { Image } from "../COMPONENTS/Image";
 //
 import img1 from "../IMAGES/MAIN/stock1.jpg";
-import img2 from '../IMAGES/MAIN/stock2.jpg'
-import img3 from '../IMAGES/MAIN/stock3.jpg'
-import img4 from '../IMAGES/MAIN/stock4.jpg'
-import img5 from '../IMAGES/MAIN/stock5.jpg'
+import img2 from "../IMAGES/MAIN/stock2.jpg";
+import img3 from "../IMAGES/MAIN/stock3.jpg";
+import img4 from "../IMAGES/MAIN/stock4.jpg";
+import img5 from "../IMAGES/MAIN/stock5.jpg";
 import { c_footer, c_nav } from "../Constants";
+import { Spacer } from "../COMPONENTS/Spacer";
 
 export function Menu1() {
   const drinks = [
@@ -58,8 +59,8 @@ export function Menu1() {
     {
       Name: "Iced Coffee",
       Prices: [
-        { Size: "Regular", Price: "5" },
-        { Size: "Large", Price: "7" },
+        { Size: "R", Price: "5" },
+        { Size: "L", Price: "7" },
       ],
       Details: "Cold brew coffee with a hint of sweetness.",
     },
@@ -76,8 +77,8 @@ export function Menu1() {
     {
       Name: "Pancakes",
       Prices: [
-        { Size: "Regular", Price: "8" },
-        { Size: "Large", Price: "10" },
+        { Size: "R", Price: "8" },
+        { Size: "L", Price: "10" },
       ],
       Details:
         "Beautiful fluffy pancakes made from the most flavorful ingredients.",
@@ -98,8 +99,8 @@ export function Menu1() {
     {
       Name: "French Toast",
       Prices: [
-        { Size: "Single Slice", Price: "5" },
-        { Size: "Full Plate", Price: "9" },
+        { Size: "Single", Price: "5" },
+        { Size: "Full", Price: "9" },
       ],
       Details: "Golden brown French toast topped with powdered sugar.",
     },
@@ -108,7 +109,7 @@ export function Menu1() {
     {
       Name: "Prime Steak",
       Prices: [
-        { Size: "Half Pound", Price: "25" },
+        { Size: "Half", Price: "25" },
         { Size: "Pound", Price: "40" },
       ],
       Details: "The best wagyu found in the world. Cooked to perfection.",
@@ -116,24 +117,24 @@ export function Menu1() {
     {
       Name: "Chicken Alfredo Pasta",
       Prices: [
-        { Size: "Regular", Price: "15" },
-        { Size: "Family Size", Price: "28" },
+        { Size: "R", Price: "15" },
+        { Size: "L", Price: "28" },
       ],
       Details: "Creamy Alfredo sauce with grilled chicken over pasta.",
     },
     {
       Name: "Vegetarian Quinoa Bowl",
       Prices: [
-        { Size: "Single Portion", Price: "12" },
-        { Size: "Double Portion", Price: "22" },
+        { Size: "Single", Price: "12" },
+        { Size: "Double", Price: "22" },
       ],
       Details: "A healthy and flavorful bowl with mixed vegetables.",
     },
     {
       Name: "Salmon Caesar Salad",
       Prices: [
-        { Size: "Regular", Price: "18" },
-        { Size: "Large", Price: "30" },
+        { Size: "R", Price: "18" },
+        { Size: "L", Price: "30" },
       ],
       Details: "Grilled salmon served on a bed of crisp Caesar salad.",
     },
@@ -149,31 +150,31 @@ export function Menu1() {
       Name: "Chocolate Chip Cookies",
       Prices: [
         { Size: "Dozen", Price: "10" },
-        { Size: "Two Dozen", Price: "18" },
+        { Size: "Two ", Price: "18" },
       ],
       Details: "Homemade cookies loaded with chocolate chips.",
     },
     {
       Name: "Mango Sorbet",
       Prices: [
-        { Size: "Scoop", Price: "5" },
-        { Size: "Double Scoop", Price: "8" },
+        { Size: "Single", Price: "5" },
+        { Size: "Double", Price: "8" },
       ],
       Details: "Refreshing mango sorbet made from ripe mangoes.",
     },
     {
       Name: "Apple Crisp",
       Prices: [
-        { Size: "Individual", Price: "6" },
-        { Size: "Family Size", Price: "12" },
+        { Size: "Single", Price: "6" },
+        { Size: "Family", Price: "12" },
       ],
       Details: "Warm apple crisp with a crispy oat topping.",
     },
   ];
 
   return (
-    <div className="roboto fade_in">
-     {c_nav()}
+    <div className="fade_in">
+      {c_nav()}
       <Row classes={"padding_v"}>
         <Group height={"70vh"} classes={"relative"}>
           <Image image={img1} classes={"cover"} />
@@ -181,7 +182,7 @@ export function Menu1() {
             <div></div>
             <div>
               <h1
-                className="white center_text all_caps"
+                className="white center_text all_caps main_title_font"
                 style={{ fontSize: "15vw" }}
               >
                 Menu
@@ -193,13 +194,21 @@ export function Menu1() {
       </Row>
       <Row>
         <Group classes={"padding"}>
-          <h2 className="no_margin">Drinks</h2>
-          <div className="vertical">
+          <h2 className="no_margin all_caps main_title_font large_text">
+            Drinks
+          </h2>
+          <Spacer height={20} />
+          <div className="vertical main_body_font">
             {drinks.map((thing, i) => {
               return (
-                <div key={i} className="separate_horizontal">
+                <div key={i} className="separate_horizontal padding_h">
                   <div>
-                    <p className="bold no_margin">{thing.Name}</p>
+                    <p
+                      className="no_margin all_caps small_text"
+                      style={{ fontSize: "20px" }}
+                    >
+                      {thing.Name}
+                    </p>
                     <p className="no_margin">{thing.Details}</p>
                   </div>
                   <div>
@@ -208,12 +217,11 @@ export function Menu1() {
                         return (
                           <div key={j}>
                             <p
-                              className="bold right_text"
-                              style={{ margin: 0 }}
+                              className="bold right_text no_margin"
                             >
                               {price.Size}
                             </p>
-                            <p className="right_text" style={{ margin: 0 }}>
+                            <p className="right_text no_margin">
                               ${price.Price}
                             </p>
                           </div>
@@ -227,13 +235,21 @@ export function Menu1() {
           </div>
         </Group>
         <Group classes={"padding"}>
-          <h2 className="no_margin">Breakfast</h2>
-          <div className="vertical">
+          <h2 className="no_margin all_caps main_title_font large_text">
+            Breakfast
+          </h2>
+          <Spacer height={20} />
+          <div className="vertical main_body_font padding_h">
             {breakfast.map((thing, i) => {
               return (
-                <div key={i} className="separate_horizontal">
+                <div key={i} className="separate_horizontal padding_h">
                   <div>
-                    <p className="bold no_margin">{thing.Name}</p>
+                    <p
+                      className="no_margin all_caps small_text"
+                      style={{ fontSize: "20px" }}
+                    >
+                      {thing.Name}
+                    </p>
                     <p className="no_margin">{thing.Details}</p>
                   </div>
                   <div>
@@ -261,13 +277,21 @@ export function Menu1() {
           </div>
         </Group>
         <Group classes={"padding"}>
-          <h2 className="no_margin">Entrees</h2>
-          <div className="vertical">
+          <h2 className="no_margin all_caps main_title_font large_text">
+            Entrees
+          </h2>
+          <Spacer height={20} />
+          <div className="vertical main_body_font padding_h">
             {entrees.map((thing, i) => {
               return (
-                <div key={i} className="separate_horizontal">
+                <div key={i} className="separate_horizontal padding_h">
                   <div>
-                    <p className="bold no_margin">{thing.Name}</p>
+                    <p
+                      className="no_margin all_caps small_text"
+                      style={{ fontSize: "20px" }}
+                    >
+                      {thing.Name}
+                    </p>
                     <p className="no_margin">{thing.Details}</p>
                   </div>
                   <div>
@@ -295,13 +319,21 @@ export function Menu1() {
           </div>
         </Group>
         <Group classes={"padding"}>
-          <h2 className="no_margin">Desserts</h2>
-          <div className="vertical">
+          <h2 className="no_margin all_caps main_title_font large_text">
+            Desserts
+          </h2>
+          <Spacer height={20} />
+          <div className="vertical main_body_font padding_h">
             {dessert.map((thing, i) => {
               return (
-                <div key={i} className="separate_horizontal">
+                <div key={i} className="separate_horizontal padding_h">
                   <div>
-                    <p className="bold no_margin">{thing.Name}</p>
+                    <p
+                      className="no_margin all_caps small_text"
+                      style={{ fontSize: "20px" }}
+                    >
+                      {thing.Name}
+                    </p>
                     <p className="no_margin">{thing.Details}</p>
                   </div>
                   <div>
@@ -331,16 +363,16 @@ export function Menu1() {
       </Row>
       <Row classes={"padding_v gap"}>
         <Group height={"40vh"}>
-            <Image image={img2} classes={"cover"} />
+          <Image image={img2} classes={"cover"} />
         </Group>
         <Group height={"40vh"}>
-            <Image image={img3} classes={"cover"} />
+          <Image image={img3} classes={"cover"} />
         </Group>
         <Group height={"40vh"}>
-            <Image image={img4} classes={"cover"} />
+          <Image image={img4} classes={"cover"} />
         </Group>
         <Group height={"40vh"}>
-            <Image image={img5} classes={"cover"} />
+          <Image image={img5} classes={"cover"} />
         </Group>
       </Row>
       {c_footer()}

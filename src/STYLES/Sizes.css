@@ -4,6 +4,9 @@
 .small_text {
     font-size: 16px;
 }
+.medsmall_text {
+    font-size: 20px;
+}
 .medium_text {
     font-size: 24px;
 }
@@ -12,4 +15,7 @@
 }
 .xlarge_text {
     font-size:42px;
+}
+.xxlarge_text {
+    font-size: 52px;
 }

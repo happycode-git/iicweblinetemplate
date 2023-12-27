@@ -7,12 +7,24 @@
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Koulen&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 .roboto {
   font-family: "Roboto", sans-serif;
 }
+.bebas {
+  font-family: 'Bebas Neue', sans-serif;
+}
+.koulen {
+  font-family: 'Koulen', sans-serif;
+}
 .opensans {
   font-family: "Open Sans", sans-serif;
+}
+.inter {
+  font-family: 'Inter', sans-serif;
 }
 .lato {
   font-family: "Lato", sans-serif;
@@ -34,4 +46,10 @@
 }
 .raleway {
   font-family: "Raleway", sans-serif;
+}
+.main_title_font {
+  font-family: 'Bebas Neue', sans-serif;
+}
+.main_body_font {
+  font-family: "Roboto", sans-serif;
 }

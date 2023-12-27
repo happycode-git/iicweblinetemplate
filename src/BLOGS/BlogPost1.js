@@ -8,45 +8,27 @@ import img2 from "../IMAGES/MAIN/stock3.jpg";
 
 export function BlogPost1({ args }) {
   return (
-    <div className="roboto" style={{ overflowY: "scroll" }}>
+    <div className="" style={{ overflowY: "scroll" }}>
       <Row>
-        <Group height={"60vh"}>
+        <Group height={"70vh"}>
           <Image image={args.Thumbnail} classes={"cover"} radius={"0"} />
         </Group>
       </Row>
       <h1
         style={{ fontSize: "3em", lineHeight: "1em" }}
-        className="center_text"
+        className="center_text main_title_font"
       >
         {args.Title}
       </h1>
       <Row classes={"center"} width={"90%"}>
         <Group>
-          <p>{args.Date}</p>
+          <p className="main_body_font">{args.Date}</p>
         </Group>
         <Group>
-          <p className="right_text bold">Written by {args.Author}</p>
+          <p className="right_text bold main_title_font medium_text">Written by {args.Author}</p>
         </Group>
       </Row>
-      <Row width={"90%"} classes={"center padding_v"}>
-        <Group>
-          <p
-            className="no_margin"
-            style={{ fontSize: "20px", fontWeight: "300" }}
-          >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a
-            augue et tellus varius accumsan. Integer auctor nunc dui, ut
-            vehicula turpis pretium accumsan. Sed ullamcorper tortor justo, vel
-            aliquam nisi suscipit a. Aenean est enim, porttitor quis felis
-            ultrices, volutpat commodo nibh. Maecenas sed semper massa. Morbi
-            tempor ligula at mi fermentum rhoncus. Phasellus euismod
-            sollicitudin euismod. Morbi porttitor rutrum risus non pharetra.
-            Praesent tincidunt finibus lorem ut euismod. Etiam ut ornare mauris,
-            ut luctus nisl.
-          </p>
-        </Group>
-      </Row>
-      <Row width={"90%"} classes={"center padding_v"}>
+      <Row width={"90%"} classes={"center padding_v main_body_font"}>
         <Group>
           <p
             className="no_margin"
@@ -64,7 +46,25 @@ export function BlogPost1({ args }) {
           </p>
         </Group>
       </Row>
-      <Row width={"90%"} classes={"center padding_v"}>
+      <Row width={"90%"} classes={"center padding_v main_body_font"}>
+        <Group>
+          <p
+            className="no_margin"
+            style={{ fontSize: "20px", fontWeight: "300" }}
+          >
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a
+            augue et tellus varius accumsan. Integer auctor nunc dui, ut
+            vehicula turpis pretium accumsan. Sed ullamcorper tortor justo, vel
+            aliquam nisi suscipit a. Aenean est enim, porttitor quis felis
+            ultrices, volutpat commodo nibh. Maecenas sed semper massa. Morbi
+            tempor ligula at mi fermentum rhoncus. Phasellus euismod
+            sollicitudin euismod. Morbi porttitor rutrum risus non pharetra.
+            Praesent tincidunt finibus lorem ut euismod. Etiam ut ornare mauris,
+            ut luctus nisl.
+          </p>
+        </Group>
+      </Row>
+      <Row width={"90%"} classes={"center padding_v main_body_font"}>
         <Group>
           <p
             className="no_margin"
@@ -82,7 +82,7 @@ export function BlogPost1({ args }) {
           </p>
         </Group>
       </Row>
-      <Row width={"90%"} classes={"center padding_v"}>
+      <Row width={"90%"} classes={"center padding_v main_body_font"}>
         <Group>
           <p
             className="no_margin"
@@ -108,7 +108,7 @@ export function BlogPost1({ args }) {
           <Image image={img2} />
         </Group>
       </Row>
-      <Row width={"90%"} classes={"center padding_v"}>
+      <Row width={"90%"} classes={"center padding_v main_body_font"}>
         <Group>
           <p
             className="no_margin"

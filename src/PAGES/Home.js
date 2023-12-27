@@ -14,9 +14,11 @@ import img4 from "../IMAGES/MAIN/stock4.jpg";
 import { Button1 } from "../COMPONENTS/Button";
 import { Block2, Block3, Block4 } from "../COMPONENTS/Blocks";
 import { Spacer } from "../COMPONENTS/Spacer";
+import MailingList from "./MailingList";
 
 export function Home1() {
   const location = useLocation();
+  const [toggle, setToggle] = useState(true)
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -26,8 +28,9 @@ export function Home1() {
   }, []);
 
   return (
-    <div className="roboto fade_in">
+    <div className="fade_in">
       {c_nav()}
+      {toggle && <MailingList setToggle={setToggle} />}
       <Spacer height={"2vh"} />
       <Row classes={"gap"}>
         <Group classes={"radius"} backgroundColor={"rgba(0,0,0,0.1)"}>
@@ -46,8 +49,8 @@ export function Home1() {
               onClick={() => {}}
               borderWidth={"2"}
               text={"Learn More"}
-              classes={"fit_width center"}
-              paddingH={"1.2em"}
+              classes={"fit_width center main_title_font"}
+              paddingH={"2em"}
               paddingV={"0.6em"}
             />
           </Block3>
@@ -101,7 +104,7 @@ export function Home1() {
 }
 export function Home2() {
   return (
-    <div className="roboto fade_in">
+    <div className="fade_in">
       {c_nav()}
       <Spacer height={"1vh"} />
       <Row>
@@ -124,7 +127,7 @@ export function Home2() {
               <Button1
                 text={"Learn More"}
                 borderColor={"white"}
-                classes={"white center"}
+                classes={"white center main_title_font"}
                 textColor={"white"}
                 onClick={() => {console.log("THING")}}
               />

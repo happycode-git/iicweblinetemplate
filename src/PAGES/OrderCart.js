@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { routes, serverURL } from "../Constants";
+import { c_footer, c_nav, routes, serverURL } from "../Constants";
 import { Navigation1 } from "../UTILITIES/Navigation";
 import { Footer1 } from "../UTILITIES/Footer";
 import { Button1, Button2 } from "../COMPONENTS/Button";
@@ -22,6 +22,9 @@ import {
 import { Grid } from "../COMPONENTS/Grid";
 import { AsyncImage } from "../COMPONENTS/AsyncImage";
 import Loading from "../UTILITIES/Loading";
+import { Clickable } from "../COMPONENTS/Clickable";
+import { IoDocumentText } from "react-icons/io5";
+import { FaShoppingCart, FaSignOutAlt } from "react-icons/fa";
 
 export default function OrderCart1() {
   const navigate = useNavigate();
@@ -97,23 +100,49 @@ export default function OrderCart1() {
   }, [userID]);
 
   return (
-    <div className="fade_in roboto">
+    <div className="fade_in">
       {loading && <Loading />}
-      <Navigation1 />
-      <div>
-        <Button2
-          borderWidth={0}
-          classes={"horizontal align_center roboto"}
-          paddingV={2}
-          onClick={() => {
-            navigate("/orderonline");
-          }}
-        >
-          <FaArrowLeft size={20} />
-          <p className="small_text bold">Back To Order</p>
-        </Button2>
-      </div>
-      <h1 className="no_margin medium_text">Your Cart ({cartItems.length})</h1>
+      {c_nav()}
+      <Spacer height={20} />
+      <Row>
+        <Group>
+          <div className="separate_horizontal">
+            <h1 className="no_margin main_title_font xlarge_text">Your Cart ({cartItems.length})</h1>
+            {userID !== "" && (
+              <div
+                className="horizontal no_gap full_radius"
+                style={{
+                  backgroundColor: "rgba(0,0,0,0.1)",
+                  padding: "10px 15px",
+                }}
+              >
+                <Clickable
+                  onClick={() => {
+                    navigate("/orders");
+                  }}
+                >
+                  <IoDocumentText size={"2em"} />
+                </Clickable>
+                <Clickable
+                  classes={"padding_h"}
+                  onClick={() => {
+                    navigate("/ordercart");
+                  }}
+                >
+                  <FaShoppingCart size={"2em"} />
+                </Clickable>
+                <Clickable
+                  onClick={() => {
+                    auth_SignOut(setLoading, navigate, "/orderlogin");
+                  }}
+                >
+                  <FaSignOutAlt size={"2em"} color="red" />
+                </Clickable>
+              </div>
+            )}
+          </div>
+        </Group>
+      </Row>
       <Row>
         <Group padding={20} classes={"scrollY"}>
           {cartItems.map((item, i) => {
@@ -130,18 +159,18 @@ export default function OrderCart1() {
                 />
                 <div style={{ flex: 1 }}>
                   <div className="separate_horizontal">
-                    <h1 className="medium_text bold no_margin">{item.Name}</h1>
+                    <h1 className="medium_text bold no_margin main_title_font">{item.Name}</h1>
                     <div
                       className="bg_black full_radius"
                       style={{ padding: "8px 14px" }}
                     >
-                      <h1 className="no_margin small_text bold white">
+                      <h1 className="no_margin small_text bold white main_body_font">
                         ${item.Price.toFixed(2)}
                       </h1>
                     </div>
                   </div>
-                  <p className="no_margin">{item.Quantity}x</p>
-                  <p className="no_margin">{item.Details}</p>
+                  <p className="no_margin main_body_font">{item.Quantity}x</p>
+                  <p className="no_margin main_body_font">{item.Details}</p>
                 </div>
               </div>
             );
@@ -177,7 +206,7 @@ export default function OrderCart1() {
               }}
             />
           </div>
-          <div>
+          <div className="main_body_font">
             <p className="white no_margin right_text">
               Sub Total:{" "}
               {cartItems
@@ -200,7 +229,7 @@ export default function OrderCart1() {
           </div>
         </div>
       </Row>
-      <Footer1 />
+      {c_footer()}
     </div>
   );
 }

@@ -18,7 +18,7 @@ export function Group({
         width: width !== undefined ? width : "100%",
         height: height !== undefined ? height : "100%",
         boxSizing: "border-box",
-        maxWidth: maxWidth,
+        maxWidth: maxWidth !== undefined ? maxWidth : "100%",
         padding: padding !== undefined ? padding : 0
       }}
     >

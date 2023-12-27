@@ -27,11 +27,11 @@ const events = [
 
 export function Events1() {
   return (
-    <div className="roboto fade_in">
+    <div className="fade_in">
       {c_nav()}
       <Row>
         <Group classes={"margin_v"}>
-          <h1 className="no_margin center_text" style={{ fontSize: "6vh" }}>
+          <h1 className="no_margin center_text main_title_font" style={{ fontSize: "6vh" }}>
             Upcoming Events
           </h1>
         </Group>
@@ -43,9 +43,9 @@ export function Events1() {
               <Image image={eve.Image} />
             </Group>
             <Group classes={"padding_h"} width={"80%"}>
-              <h1>{eve.Name}</h1>
-              <p>{eve.Details}</p>
-              <p className="right_text" style={{ color: "gray" }}>
+              <h1 className="main_title_font">{eve.Name}</h1>
+              <p className="main_body_font">{eve.Details}</p>
+              <p className="right_text main_body_font" style={{ color: "gray" }}>
                 {eve.Date}
               </p>
             </Group>

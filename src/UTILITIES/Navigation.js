@@ -123,8 +123,8 @@ export function Navigation1({}) {
               })}
           </Block1>
           {/* COPYRIGHT */}
-          <Block1>
-            <p className="no_margin no_padding xsmall_text center_text">
+          <Block1 classes={"scrollY"}>
+            <p className="no_margin padding xsmall_text center_text main_body_font">
               {c_copyright}
             </p>
           </Block1>

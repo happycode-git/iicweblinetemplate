@@ -1,13 +1,7 @@
 import React from "react";
 import { screenHeight } from "../Global";
 
-export function Row({
-  children,
-  height,
-  backgroundColor,
-  width,
-  classes,
-}) {
+export function Row({ children, height, backgroundColor, width, classes }) {
   return (
     <div
       className={classes}
@@ -19,7 +13,7 @@ export function Row({
           backgroundColor !== undefined ? backgroundColor : "rgba(0,0,0,0)",
         boxSizing: "border-box",
         width: width !== undefined ? width : "auto",
-        gap: "1em"
+        gap: "1em",
       }}
     >
       {React.Children.map(children, (child, index) => (

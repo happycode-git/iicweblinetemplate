@@ -64,7 +64,7 @@ export default function CheckoutForm() {
       const { error, paymentIntent } = await stripe.confirmPayment({
         elements,
         confirmParams: {
-          return_url: `${c_domain}/orderonline`,
+          return_url: `${c_domain}/orderconfirmation`,
         },
       });
 

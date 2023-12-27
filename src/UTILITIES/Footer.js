@@ -14,11 +14,11 @@ import { Spacer } from "../COMPONENTS/Spacer";
 export function Footer1() {
   const navigate = useNavigate();
   return (
-    <div className="roboto">
+    <div className="">
       <Row classes={"gap padding radius white"} backgroundColor={"#202020"}>
         <Group height={"40vh"}>
             <Spacer height={"5vh"} />
-          <Image image={img1} classes={"contain"} height={"45%"} />
+          <Image image={img1} classes={"contain"} height={"55%"} />
           <div className="separate_evenly padding_v center" style={{width: "70%"}}>
             <Clickable onClick={() => {
                 window.open(c_instagram, "_blank");
@@ -38,7 +38,7 @@ export function Footer1() {
           </div>
         </Group>
         <Group>
-          <p className="thin" style={{fontSize: "18px"}}>{c_desc}</p>
+          <p className="main_body_font medsmall_text">{c_desc}</p>
         </Group>
         <Group classes={"padding center_text separate_vertical"}>
           <div className="vertical" style={{gap: "0.5em"}}>
@@ -47,7 +47,7 @@ export function Footer1() {
               .map((route, i) => {
                 return (
                   <Link1
-                    classes={"white underline thin"}
+                    classes={"white underline"}
                     key={i}
                     text={route.text}
                     size={"20px"}
@@ -58,9 +58,10 @@ export function Footer1() {
                 );
               })}
           </div>
-          <p className="xsmall_text thin center_text">{c_copyright}</p>
+         
         </Group>
       </Row>
+      <p className="xsmall_text center_text main_body_font">{c_copyright}</p>
     </div>
   );
 }
