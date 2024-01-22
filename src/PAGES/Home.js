@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Navigation1, Navigation2 } from "../UTILITIES/Navigation";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { c_footer, c_nav, routes } from "../Constants";
 import { Row } from "../COMPONENTS/Row";
 import { Group } from "../COMPONENTS/Group";
@@ -17,6 +17,7 @@ import { Spacer } from "../COMPONENTS/Spacer";
 import MailingList from "./MailingList";
 
 export function Home1() {
+  const navigate = useNavigate()
   const location = useLocation();
   const [toggle, setToggle] = useState(true)
 
@@ -46,7 +47,7 @@ export function Home1() {
             width={"75%"}
           >
             <Button1
-              onClick={() => {}}
+              onClick={() => {navigate("/")}}
               borderWidth={"2"}
               text={"Learn More"}
               textSize={"20px"}
@@ -104,6 +105,7 @@ export function Home1() {
   );
 }
 export function Home2() {
+  const navigate = useNavigate()
   const location = useLocation();
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -138,7 +140,7 @@ export function Home2() {
                 borderColor={"white"}
                 classes={"white center main_title_font"}
                 textColor={"white"}
-                onClick={() => {console.log("THING")}}
+                onClick={() => {navigate("/")}}
               />
             </Block3>
             <div></div>

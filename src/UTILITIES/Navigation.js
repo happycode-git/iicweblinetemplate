@@ -158,6 +158,7 @@ export function Navigation2({}) {
 
   useEffect(() => {
     window.addEventListener("resize", handleResize);
+    handleResize()
   }, []);
 
   return (

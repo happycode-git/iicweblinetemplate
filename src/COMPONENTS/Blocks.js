@@ -110,6 +110,7 @@ export function Block4({
       <img
         src={image}
         style={{ width: "100%", maxHeight: "40vh", borderRadius: "6px" }}
+        className="cover"
       />
       <h2
       className="main_title_font"
