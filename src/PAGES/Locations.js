@@ -38,7 +38,7 @@ export function Locations1() {
         </Group>
         <Group>
           <Map
-            address={"Tokyo Imperial Palace"}
+            address={"Yoyogi Uehara Train Station"}
             minHeight={"40vh"}
             classes={"radius"}
           />
@@ -61,7 +61,7 @@ export function Locations1() {
         </Group>
         <Group>
           <Map
-            address={"Tokyo Imperial Palace"}
+            address={"Yoyogi Uehara Train Station"}
             minHeight={"40vh"}
             classes={"radius"}
           />

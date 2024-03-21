@@ -43,3 +43,6 @@
 .hover:hover {
   opacity: 0.8;
 }
+.kerning {
+  letter-spacing: -1px;
+}

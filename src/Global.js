@@ -70,8 +70,8 @@ export function randomString(length) {
   }
   return result;
 }
-export function function_sendEmail(toEmail, subject, HTML, templateID) {
-  emailjs.send(
+export async function function_sendEmail(toEmail, subject, HTML, templateID) {
+  await emailjs.send(
     emailServiceID,
     templateID,
     {
@@ -83,7 +83,7 @@ export function function_sendEmail(toEmail, subject, HTML, templateID) {
       HTML: renderToString(HTML),
     },
     emailPublicKey
-  );
+  )
 }
 export function function_sendBusinessEmail(
   fromEmail,
@@ -104,6 +104,79 @@ export function function_sendBusinessEmail(
     },
     emailPublicKey
   );
+}
+export function function_GetDayOfWeek(date) {
+  if (date !== undefined) {
+    const numDay = date.getDay();
+    switch (numDay) {
+      case 0:
+        return "Sunday";
+      case 1:
+        return "Monday";
+      case 2:
+        return "Tuesday";
+      case 3:
+        return "Wednesday";
+      case 4:
+        return "Thursday";
+      case 5:
+        return "Friday";
+      case 6:
+        return "Saturday";
+      default:
+        return "NO DAY";
+    }
+  } else {
+    const numDay = new Date().getDay();
+    switch (numDay) {
+      case 1:
+        return "Monday";
+      case 2:
+        return "Tuesday";
+      case 3:
+        return "Wednesday";
+      case 4:
+        return "Thursday";
+      case 5:
+        return "Friday";
+      case 6:
+        return "Saturday";
+      case 7:
+        return "Sunday";
+      default:
+        return "NO DAY";
+    }
+  }
+}
+export function function_RemoveDuplicates(array) {
+  return Array.from(new Set(array));
+}
+export function function_RemoveDuplicatesByProperty(array, prop) {
+  const uniqueMap = {};
+  return array.filter((item) => {
+    if (!uniqueMap[item[prop]]) {
+      uniqueMap[item[prop]] = true;
+      return true;
+    }
+    return false;
+  });
+}
+export function function_FormatDateLong(date) {
+  const daysOfWeek = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  const dayOfWeek = daysOfWeek[date.getDay()];
+  const month = date.toLocaleString("default", { month: "long" });
+  const day = date.getDate();
+  const year = date.getFullYear();
+
+  return `${dayOfWeek}, ${month} ${day}, ${year}`;
 }
 
 // FUNCTIONS

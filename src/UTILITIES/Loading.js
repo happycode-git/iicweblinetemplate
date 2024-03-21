@@ -18,7 +18,7 @@ export default function Loading({classes}) {
     >
       <div></div>
       <div>
-        <h2 className="center_text" style={{fontSize: "2em", color: "white"}}>Loading...</h2>
+        <h2 className="center_text roboto" style={{fontSize: "2em", color: "white"}}>Loading...</h2>
       </div>
       <div></div>
     </div>

@@ -21,13 +21,15 @@ import { Navigation1 } from "./UTILITIES/Navigation";
 import OrderOrders from "./PAGES/OrderOrders";
 import Gallery1 from "./PAGES/Gallery";
 import { Helmet } from "react-helmet";
+import { Schedule1 } from "./PAGES/Schedule";
 
 // BUSINESS INFO
 export const c_businessName = "Happy Code Dev";
 export const c_desc =
   "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a augue et tellus varius accumsan. Integer auctor nunc dui, ut vehicula turpis pretium accumsan. Sed ullamcorper tortor justo, vel aliquam nisi suscipit a. Aenean est enim, porttitor quis felis ultrices, volutpat commodo nibh. Maecenas sed semper massa. Morbi tempor ligula at mi fermentum rhoncus.";
 export const c_copyright = `Copyright 2023 ${c_businessName}. All Rights Reserved.`;
-export const c_instagram = "https://www.instagram.com/creations_of_innovation/";
+export const c_instagram =
+  "https://www.instagram.com/innovative_internet_creations/";
 export const c_facebook = "";
 export const c_yelp = "";
 export const c_phone = "123-456-7890";
@@ -42,6 +44,28 @@ export const serverURL = "https://thunder-easy-pick.glitch.me";
 export const emailPublicKey = "L6fRNP99J11mfa0UD";
 export const emailServiceID = "bagel";
 export const contactTemplateID = "contact_customer";
+//
+export const scheduleHours = {
+  Monday: "8:00-18:00",
+  Tuesday: "8:00-18:00",
+  Wednesday: "8:00-18:00",
+  Thursday: "8:00-18:00",
+  Friday: "8:00-18:00",
+  Saturday: "8:00-18:00",
+  Sunday: "8:00-18:00",
+};
+export const appointmentTypes = [
+  {
+    Category: "Manicure",
+    Service: "Gel Manicure",
+    Duration: 30,
+  },
+  {
+    Category: "Manicure",
+    Service: "Acrylic Manicure",
+    Duration: 45,
+  },
+];
 
 // ROUTES
 export const routes = [
@@ -67,7 +91,7 @@ export const routes = [
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="robots" content="index, follow" />
       </Helmet>
-    )
+    ),
   },
   {
     path: "2",
@@ -91,7 +115,7 @@ export const routes = [
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="robots" content="index, follow" />
       </Helmet>
-    )
+    ),
   },
   {
     path: "about",
@@ -116,7 +140,6 @@ export const routes = [
         <meta name="robots" content="index, follow" />
       </Helmet>
     ),
-    
   },
   {
     path: "about2",
@@ -141,7 +164,6 @@ export const routes = [
         <meta name="robots" content="index, follow" />
       </Helmet>
     ),
-    
   },
   {
     path: "gallery",
@@ -166,7 +188,6 @@ export const routes = [
         <meta name="robots" content="index, follow" />
       </Helmet>
     ),
-    
   },
   {
     path: "services",
@@ -190,7 +211,7 @@ export const routes = [
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="robots" content="index, follow" />
       </Helmet>
-    ),    
+    ),
   },
   {
     path: "contact",
@@ -214,7 +235,7 @@ export const routes = [
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="robots" content="index, follow" />
       </Helmet>
-    ),    
+    ),
   },
   {
     path: "menu",
@@ -239,7 +260,6 @@ export const routes = [
         <meta name="robots" content="index, follow" />
       </Helmet>
     ),
-    
   },
   {
     path: "faq",
@@ -264,7 +284,6 @@ export const routes = [
         <meta name="robots" content="index, follow" />
       </Helmet>
     ),
-    
   },
   {
     path: "locations",
@@ -289,7 +308,6 @@ export const routes = [
         <meta name="robots" content="index, follow" />
       </Helmet>
     ),
-    
   },
   {
     path: "events",
@@ -314,7 +332,6 @@ export const routes = [
         <meta name="robots" content="index, follow" />
       </Helmet>
     ),
-    
   },
   {
     path: "reviews",
@@ -339,7 +356,6 @@ export const routes = [
         <meta name="robots" content="index, follow" />
       </Helmet>
     ),
-    
   },
   {
     path: "blog",
@@ -364,7 +380,6 @@ export const routes = [
         <meta name="robots" content="index, follow" />
       </Helmet>
     ),
-    
   },
   {
     path: "blogpost",
@@ -376,14 +391,8 @@ export const routes = [
     footer_nav: false,
     Helmet: (
       <Helmet>
-        <meta
-          name="description"
-          content={``}
-        />
-        <meta
-          name="keywords"
-          content={``}
-        />
+        <meta name="description" content={``} />
+        <meta name="keywords" content={``} />
         <meta name="author" content={"Innovative Internet Creations LLC"} />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="robots" content="index, follow" />
@@ -413,7 +422,30 @@ export const routes = [
         <meta name="robots" content="index, follow" />
       </Helmet>
     ),
-    
+  },
+  {
+    path: "schedule",
+    element: <Schedule1 />,
+    text: "Schedule",
+    title: "Schedule | The best websites in the world!",
+    top_nav: true,
+    hidden_nav: true,
+    footer_nav: true,
+    Helmet: (
+      <Helmet>
+        <meta
+          name="description"
+          content={`Meet the talented team at ${c_businessName}. Learn about our skilled professionals in website and app development, and discover the expertise behind our innovative solutions.`}
+        />
+        <meta
+          name="keywords"
+          content="team, professionals, website development, app development, innovation, expertise"
+        />
+        <meta name="author" content={`Innovative Internet Creations LLC`} />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="robots" content="index, follow" />
+      </Helmet>
+    ),
   },
   {
     path: "login",
@@ -438,7 +470,6 @@ export const routes = [
         <meta name="robots" content="noindex, nofollow" />
       </Helmet>
     ),
-    
   },
   {
     path: "orderonline",
@@ -463,7 +494,6 @@ export const routes = [
         <meta name="robots" content="index, follow" />
       </Helmet>
     ),
-    
   },
   {
     path: "ordercart",
@@ -488,7 +518,6 @@ export const routes = [
         <meta name="robots" content="index, follow" />
       </Helmet>
     ),
-    
   },
   {
     path: "orderconfirmation",
@@ -522,7 +551,6 @@ export const routes = [
         <meta name="robots" content="noindex, nofollow" />
       </Helmet>
     ),
-    
   },
   {
     path: "orders",
@@ -547,7 +575,6 @@ export const routes = [
         <meta name="robots" content="index, follow" />
       </Helmet>
     ),
-    
   },
   {
     path: "test",

@@ -8,7 +8,6 @@ import { Link1 } from "../COMPONENTS/Link";
 import { Clickable } from "../COMPONENTS/Clickable";
 import { useNavigate } from "react-router-dom";
 import { FiMenu } from "react-icons/fi";
-import { screenWidth } from "../Global";
 import { Block1 } from "../COMPONENTS/Blocks";
 import { HiOutlineXMark } from "react-icons/hi2";
 
@@ -22,7 +21,7 @@ export function Navigation1({}) {
     console.log(window.innerWidth);
     if (navlinks) {
       const navlinkWidth = navlinks.clientWidth;
-      if (navlinkWidth >= window.innerWidth * 0.4 || window.innerWidth <= 550) {
+      if (navlinkWidth >= window.innerWidth * 0.7 || window.innerWidth <= 550) {
         setToggleBurger(true);
         console.log("TOO SMALL");
       } else {
@@ -36,6 +35,7 @@ export function Navigation1({}) {
 
   useEffect(() => {
     window.addEventListener("resize", handleResize);
+    handleResize()
   }, []);
 
   return (
@@ -139,12 +139,11 @@ export function Navigation2({}) {
   const [toggleNav, setToggleNav] = useState(false)
 
   function handleResize() {
-    const logo = document.querySelector("#logo");
     const navlinks = document.querySelector("#navlinks");
+    console.log(window.innerWidth);
     if (navlinks) {
-      const logoWidth = logo.clientWidth;
       const navlinkWidth = navlinks.clientWidth;
-      if (logoWidth + navlinkWidth + screenWidth * 0.2 >= window.innerWidth || window.innerWidth <= 550) {
+      if (navlinkWidth >= window.innerWidth * 0.7 || window.innerWidth <= 550) {
         setToggleBurger(true);
         console.log("TOO SMALL");
       } else {
